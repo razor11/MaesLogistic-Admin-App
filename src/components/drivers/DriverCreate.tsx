@@ -21,7 +21,7 @@ const UserCreateActions = ({ basePath, data, resource }: any) => (
 
 export const DriverCreate = (props: any) => (
   <Create actions={<UserCreateActions />} {...props}>
-    <TabbedForm redirect="show">
+    <TabbedForm redirect="show" scrollButtons="auto">
       <FormTab label="Identity">
         <NumberInput source="id"></NumberInput>
         <TextInput

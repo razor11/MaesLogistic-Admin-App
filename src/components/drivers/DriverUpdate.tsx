@@ -11,6 +11,7 @@ import {
   TopToolbar,
   TextInput,
   NumberInput,
+  TabbedFormTabs
 } from "react-admin";
 
 import { Box } from "@material-ui/core";
@@ -26,8 +27,8 @@ const DriverUpdateActions = ({ basePath, data, resource }: any) => (
 
 export const DriverEdit = (props: any) => (
   <Edit actions={<DriverUpdateActions/>} {...props}>
-    <TabbedForm  redirect="list">
-        <FormTab label="Driver Personal Information">
+    <TabbedForm  redirect="list"  tabs={<TabbedFormTabs scrollButtons="auto" />}>
+        <FormTab label="Information">
         <TextInput source="id" disabled></TextInput>
       <TextInput source="driverName"></TextInput>
       <TextInput source="driverLastName"></TextInput>
@@ -44,7 +45,7 @@ export const DriverEdit = (props: any) => (
       />
         </FormTab>
       
-      <FormTab label="Driver Address">
+      <FormTab label="Address">
       <TextInput
           source="address.street"
           label="Street"
@@ -87,7 +88,7 @@ export const DriverEdit = (props: any) => (
 
       </FormTab>
 
-      <FormTab label="Driver Record">
+      <FormTab label="Record">
            <NumberInput source="packagesCompleted" label="Packages Delivered"></NumberInput>
            <NumberInput source="tripsCompleted" label="Trips Completed"></NumberInput>
            <NumberInput source="milesAccuered" label="Miles Accuered"></NumberInput>
