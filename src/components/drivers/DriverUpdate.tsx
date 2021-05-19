@@ -15,6 +15,7 @@ import {
 } from "react-admin";
 
 import { Box } from "@material-ui/core";
+import { useMediaQuery } from "@material-ui/core";
 
 
 const DriverUpdateActions = ({ basePath, data, resource }: any) => (
@@ -25,10 +26,16 @@ const DriverUpdateActions = ({ basePath, data, resource }: any) => (
 );
 
 
-export const DriverEdit = (props: any) => (
+export const DriverEdit = (props: any) => 
+{
+  const isSmall = useMediaQuery((theme: any) => theme.breakpoints.down("sm"));
+
+
+return  (
   <Edit actions={<DriverUpdateActions/>} {...props}>
     <TabbedForm  redirect="list"  tabs={<TabbedFormTabs scrollButtons="auto" />}>
-        <FormTab label="Information">
+      
+        <FormTab label="Identity">
         <TextInput source="id" disabled></TextInput>
       <TextInput source="driverName"></TextInput>
       <TextInput source="driverLastName"></TextInput>
@@ -88,7 +95,7 @@ export const DriverEdit = (props: any) => (
 
       </FormTab>
 
-      <FormTab label="Record">
+      <FormTab label="Driver Record">
            <NumberInput source="packagesCompleted" label="Packages Delivered"></NumberInput>
            <NumberInput source="tripsCompleted" label="Trips Completed"></NumberInput>
            <NumberInput source="milesAccuered" label="Miles Accuered"></NumberInput>
@@ -98,4 +105,5 @@ export const DriverEdit = (props: any) => (
      
     </TabbedForm>
   </Edit>
-);
+)
+        };

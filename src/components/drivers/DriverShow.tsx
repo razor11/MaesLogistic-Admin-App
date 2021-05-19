@@ -23,7 +23,7 @@ const DriverShowActions = ({ basePath, data, resource }: any) => (
      return(
        <Show actions={<DriverShowActions/>} {...props}>
            <TabbedShowLayout>
-               <Tab label="Driver Personal Information">
+               <Tab label="Identity">
                    <NumberField  source="id" label="Driver Id"/>
                    <TextField source="driverName" label="Driver Name"/>  
                    <TextField source="driverLastName" label="Driver Last Name "/> 
@@ -34,7 +34,7 @@ const DriverShowActions = ({ basePath, data, resource }: any) => (
 
                </Tab>
 
-               <Tab label="Driver Address">
+               <Tab label="Address">
                   <TextField source="address.street" label="Street"/>
                   <TextField source="address.suite" label="Suite"/>
                   <TextField source="address.city" label="City"/>
