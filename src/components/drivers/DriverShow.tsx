@@ -12,6 +12,14 @@ import {
   TextField
 } from "react-admin";
 
+
+
+
+const PageTitle = ({ record }:any) : any => {
+  return <span>Driver: {record ? `"${record.driverName}"` : ''}</span>;
+};
+
+
 const DriverShowActions = ({ basePath, data, resource }: any) => (
   <TopToolbar>
     <ListButton basePath={basePath} label="Drivers List" />
@@ -21,7 +29,7 @@ const DriverShowActions = ({ basePath, data, resource }: any) => (
 
  export const DriverShow = (props : any) => {
      return(
-       <Show actions={<DriverShowActions/>} {...props}>
+       <Show title={<PageTitle/>} actions={<DriverShowActions/>} {...props}>
            <TabbedShowLayout>
                <Tab label="Identity">
                    <NumberField  source="id" label="Driver Id"/>
