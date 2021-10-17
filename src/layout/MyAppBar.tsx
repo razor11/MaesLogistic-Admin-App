@@ -3,6 +3,8 @@ import { AppBar } from 'react-admin';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+
+
 import Logo from '../Logo.png';
 import '../App.css';
 const useStyles = makeStyles({
@@ -19,6 +21,7 @@ const useStyles = makeStyles({
 
 const MyAppBar = ( props:any ) => {
     const classes = useStyles();
+    const userName= localStorage.getItem('userName');
     return (
         <AppBar {...props}>
             <Typography
@@ -27,8 +30,9 @@ const MyAppBar = ( props:any ) => {
                 className={classes.title}
                 id="react-admin-title"
             />
-              <img src={Logo} className="App-logo" alt="logo" />
+            <img src={Logo} className="App-logo" alt="logo" />
             <span className={classes.spacer} />
+            <h5>{userName}</h5>
         </AppBar>
     );
 };

@@ -21,12 +21,17 @@ import { ClientShow } from "./components/clients/ClientShow";
 import { ClientEdit } from "./components/clients/ClientEdit";
 import { ClientCreate } from "./components/clients/ClientCreate";
 
+
+import { PackagesList } from "./components/packages/packagesList";
+import { PackageShow } from "./components/packages/PackageShow";
+
 ////
 
 import { authProvider } from "./providers/authProvider";
 import { createMuiTheme } from "@material-ui/core/styles";
 import MyLayout from "./layout/MyLayout";
 import PermContactCalendarIcon from "@material-ui/icons/PermContactCalendar";
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import UserIcon from "@material-ui/icons/Group";
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
 
@@ -78,6 +83,15 @@ function App() {
         show={ClientShow}
         edit={ClientEdit}
         create={ClientCreate}
+      />
+
+      <Resource 
+        name="packages"
+        options={{label: "Packages"}}
+        icon={ShoppingBasketIcon}
+        list={PackagesList}
+        show={PackageShow}
+
       />
 
       {/*  <Resource name="users" list={UserList} show={ShowUser} edit={UserEdit} create={UserCreate} icon={UserIcon}/>
